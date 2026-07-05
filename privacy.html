@@ -244,13 +244,13 @@
                 </tr>
                 <tr>
                     <td>Analisi utilizzo app (Firebase Analytics)</td>
-                    <td>Identificatore pseudonimo di installazione (App Instance ID), schermate visitate, eventi anonimi di utilizzo</td>
-                    <td>Legittimo interesse (art. 6.1.f) — l'utente può disabilitare la raccolta dati in qualsiasi momento da Impostazioni → Privacy</td>
+                    <td>App Instance ID (identificatore pseudonimo di installazione) e UUID utente Supabase (pseudonimo — non contiene nome né email, impostato tramite <code>setUserId</code> al login), schermate visitate, eventi di utilizzo. Nessun dato finanziario viene incluso negli eventi analytics.</td>
+                    <td>Legittimo interesse (art. 6.1.f). <strong>Bilanciamento LIA:</strong> interesse legittimo = miglioramento del prodotto tramite comprensione dei percorsi d'uso. Misure di bilanciamento: (a) identificatori pseudonimi non collegabili a nome/email; (b) nessun dato finanziario trasmesso; (c) nessuna profilazione con effetti giuridici; (d) opt-out disponibile in-app. <strong>Diritto di opposizione (art. 21 GDPR):</strong> disabilita la raccolta in qualsiasi momento da <strong>Impostazioni → Privacy</strong>.</td>
                 </tr>
                 <tr>
                     <td>Miglioramento del servizio (feedback AI)</td>
-                    <td>Categoria accettata o corretta dall'utente, associata al tuo UUID utente (identificatore pseudonimo — non contiene nome, email o dati direttamente identificativi). Gli stessi eventi vengono registrati anche su Firebase Analytics tramite App Instance ID (anch'esso pseudonimo). Il feedback <strong>non viene condiviso con terzi</strong> né usato per addestrare modelli AI di terze parti.</td>
-                    <td>Legittimo interesse (art. 6.1.f) — puoi opporti al trattamento ai sensi dell'art. 21 GDPR scrivendo a <a href="mailto:support@mafebalance.com">support@mafebalance.com</a></td>
+                    <td>Categoria accettata o corretta dall'utente, associata al UUID utente (pseudonimo — non contiene nome, email o dati direttamente identificativi). Il feedback <strong>non viene condiviso con terzi</strong> né usato per addestrare modelli AI di terze parti.</td>
+                    <td>Legittimo interesse (art. 6.1.f). <strong>Bilanciamento LIA:</strong> interesse legittimo = miglioramento dell'accuratezza della categorizzazione AI per tutti gli utenti. Misure di bilanciamento: (a) dato ridotto al minimo (solo label di categoria, senza descrizione della transazione né importo); (b) pseudonimizzazione via UUID; (c) nessuna condivisione con terzi; (d) nessun impatto su decisioni automatizzate con effetti giuridici. <strong>Diritto di opposizione (art. 21 GDPR):</strong> scrivi a <a href="mailto:support@mafebalance.com">support@mafebalance.com</a>.</td>
                 </tr>
                 <tr>
                     <td>Pubblicità in-app — piano gratuito (Google AdMob)</td>
@@ -349,7 +349,7 @@
                 <tr>
                     <td><strong>Google LLC</strong> (Firebase Analytics)</td>
                     <td>Analisi utilizzo app (schermate, eventi, sessioni)</td>
-                    <td>App Instance ID (identificatore pseudonimo di installazione, non collegato all'identità reale dell'utente; viene azzerato alla disinstallazione dell'app), dati di utilizzo aggregati. I dati non sono anonimizzati ma pseudonimizzati. L'utente può disabilitare la raccolta da Impostazioni → Privacy.</td>
+                    <td>App Instance ID (identificatore pseudonimo di installazione; si azzera alla disinstallazione) e UUID utente Supabase (pseudonimo, impostato al login tramite <code>setUserId</code> — non contiene nome né email), schermate visitate, eventi di utilizzo. I dati sono pseudonimizzati, non anonimizzati. Nessun dato finanziario viene trasmesso. L'utente può disabilitare la raccolta da Impostazioni → Privacy.</td>
                     <td>USA (trasferimento coperto da SCC/Data Privacy Framework EU-USA)</td>
                 </tr>
                 <tr>
