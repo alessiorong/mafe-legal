@@ -186,6 +186,7 @@
             <li>Preferenze dell'app (tema, valuta) — archiviato localmente sul dispositivo</li>
             <li>Log di errore e dati diagnostici anonimi per la manutenzione del servizio (tramite Firebase Crashlytics: stack trace, modello dispositivo, versione sistema operativo, identificatore installazione anonimo)</li>
             <li>Feedback sulle categorizzazioni AI (categoria accettata/modificata) — archiviato nel database associato al tuo identificatore utente anonimo (UUID), non al nome né all'indirizzo email. Non viene utilizzato per addestrare modelli AI di terze parti.</li>
+            <li>Identificatore pubblicitario (IDFA su iOS, AAID su Android) — raccolto da Google AdMob <strong>esclusivamente se l'utente ha prestato consenso esplicito</strong> tramite App Tracking Transparency (iOS) o il form UMP (Android). In assenza di consenso non viene raccolto alcun identificatore pubblicitario e vengono mostrati solo annunci non personalizzati.</li>
         </ul>
 
         <h2>3. Finalità e Base Giuridica del Trattamento</h2>
@@ -242,6 +243,11 @@
                     <td>Miglioramento del servizio (feedback AI)</td>
                     <td>Categoria accettata o corretta dall'utente, associata al tuo UUID utente (identificatore pseudonimo — non contiene nome, email o dati direttamente identificativi). Gli stessi eventi vengono registrati anche su Firebase Analytics tramite App Instance ID (anch'esso pseudonimo). Il feedback <strong>non viene condiviso con terzi</strong> né usato per addestrare modelli AI di terze parti.</td>
                     <td>Legittimo interesse (art. 6.1.f) — puoi opporti al trattamento ai sensi dell'art. 21 GDPR scrivendo a <a href="mailto:support@mafebalance.com">support@mafebalance.com</a></td>
+                </tr>
+                <tr>
+                    <td>Pubblicità in-app — piano gratuito (Google AdMob)</td>
+                    <td>Identificatore pubblicitario (IDFA/AAID), informazioni dispositivo (modello, sistema operativo), dati di utilizzo dell'app</td>
+                    <td>Consenso esplicito (art. 6.1.a) — richiesto prima della visualizzazione di annunci personalizzati: tramite <strong>App Tracking Transparency (ATT)</strong> su iOS e tramite il <strong>form UMP (User Messaging Platform)</strong> su Android, conforme alla EU User Consent Policy e al framework IAB TCF v2. Puoi revocare il consenso in qualsiasi momento dalle impostazioni del dispositivo (iOS: Impostazioni → Privacy e sicurezza → Tracciamento; Android: Impostazioni → Google → Annunci). In assenza di consenso vengono mostrati esclusivamente annunci non personalizzati.</td>
                 </tr>
                 <tr>
                     <td>Assistenza e supporto</td>
