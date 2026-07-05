@@ -138,7 +138,7 @@
     <div class="container">
         <h1>Informativa sulla Privacy</h1>
         <div class="last-updated">
-            Ultima modifica: 4 luglio 2026 — Versione 1.0
+            Ultima modifica: 5 luglio 2026 — Versione 1.0
         </div>
 
         <div class="highlight">
@@ -185,7 +185,7 @@
             <li>Token del dispositivo per le notifiche push (archiviato localmente)</li>
             <li>Preferenze dell'app (tema, valuta) — archiviato localmente sul dispositivo</li>
             <li>Log di errore e dati diagnostici anonimi per la manutenzione del servizio (tramite Firebase Crashlytics: stack trace, modello dispositivo, versione sistema operativo, identificatore installazione anonimo)</li>
-            <li>Feedback sulle categorizzazioni AI (categoria accettata/modificata)</li>
+            <li>Feedback sulle categorizzazioni AI (categoria accettata/modificata) — archiviato nel database associato al tuo identificatore utente anonimo (UUID), non al nome né all'indirizzo email. Non viene utilizzato per addestrare modelli AI di terze parti.</li>
         </ul>
 
         <h2>3. Finalità e Base Giuridica del Trattamento</h2>
@@ -240,8 +240,8 @@
                 </tr>
                 <tr>
                     <td>Miglioramento del servizio (feedback AI)</td>
-                    <td>Categorie accettate/modificate</td>
-                    <td>Legittimo interesse (art. 6.1.f)</td>
+                    <td>Categoria accettata o corretta dall'utente, associata al tuo UUID utente (identificatore pseudonimo — non contiene nome, email o dati direttamente identificativi). Gli stessi eventi vengono registrati anche su Firebase Analytics tramite App Instance ID (anch'esso pseudonimo). Il feedback <strong>non viene condiviso con terzi</strong> né usato per addestrare modelli AI di terze parti.</td>
+                    <td>Legittimo interesse (art. 6.1.f) — puoi opporti al trattamento ai sensi dell'art. 21 GDPR scrivendo a <a href="mailto:support@mafebalance.com">support@mafebalance.com</a></td>
                 </tr>
                 <tr>
                     <td>Assistenza e supporto</td>
@@ -409,7 +409,7 @@
 
         <div class="footer">
             <p><strong>© 2025-2026 Mafe Balance — Alessio Rongione. Tutti i diritti riservati.</strong></p>
-            <p>Versione 1.0 — Ultima modifica: 4 luglio 2026</p>
+            <p>Versione 1.0 — Ultima modifica: 5 luglio 2026</p>
         </div>
     </div>
 </body>
