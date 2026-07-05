@@ -411,14 +411,66 @@
         <h2>8. Cookie e Tecnologie di Tracciamento</h2>
         <p>Mafe Balance è un'applicazione mobile e <strong>non utilizza cookie</strong>. Alcune preferenze dell'app (tema, valuta) sono archiviate localmente sul tuo dispositivo tramite SharedPreferences e non vengono trasmesse a server esterni.</p>
 
-        <h2>9. Minori</h2>
+        <h2>9. Permessi del Dispositivo</h2>
+        <p>Per erogare le proprie funzionalità, l'app richiede i seguenti permessi di sistema:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Permesso</th>
+                    <th>Piattaforma</th>
+                    <th>Finalità</th>
+                    <th>Obbligatorio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Internet</td>
+                    <td>iOS, Android</td>
+                    <td>Comunicazione con i server Supabase per la sincronizzazione dei dati e con i servizi di terze parti</td>
+                    <td>Sì</td>
+                </tr>
+                <tr>
+                    <td>Notifiche push</td>
+                    <td>iOS, Android</td>
+                    <td>Promemoria per budget, scadenze pagamenti e transazioni ricorrenti</td>
+                    <td>No — richiesto al primo avvio; la negazione non compromette le funzionalità principali</td>
+                </tr>
+                <tr>
+                    <td>Fotocamera</td>
+                    <td>iOS, Android</td>
+                    <td>Scansione di scontrini per l'aggiunta automatica di transazioni tramite AI</td>
+                    <td>No — richiesto solo all'uso della funzione di scansione</td>
+                </tr>
+                <tr>
+                    <td>Libreria foto / Galleria</td>
+                    <td>iOS, Android</td>
+                    <td>Selezione di immagini di scontrini dalla galleria o importazione di file CSV</td>
+                    <td>No — richiesto solo alla selezione di un'immagine dalla galleria</td>
+                </tr>
+                <tr>
+                    <td>Avvio con il dispositivo (RECEIVE_BOOT_COMPLETED)</td>
+                    <td>Android</td>
+                    <td>Ri-programmazione delle notifiche locali dopo il riavvio del dispositivo</td>
+                    <td>Sì (Android) — garantisce la continuità delle notifiche</td>
+                </tr>
+                <tr>
+                    <td>Allarmi esatti (SCHEDULE_EXACT_ALARM / USE_EXACT_ALARM)</td>
+                    <td>Android</td>
+                    <td>Programmazione precisa delle notifiche di promemoria all'orario impostato dall'utente</td>
+                    <td>Sì (Android) — necessario per notifiche puntuali</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Puoi revocare i permessi facoltativi in qualsiasi momento dalle impostazioni del dispositivo (iOS: <strong>Impostazioni → Mafe Balance</strong>; Android: <strong>Impostazioni → App → Mafe Balance → Permessi</strong>). La revoca non comporta la cancellazione dei dati già inseriti nell'app.</p>
+
+        <h2>10. Minori</h2>
         <p>Il servizio è destinato a persone di almeno 16 anni. Ai sensi dell'art. 8 GDPR e del D.Lgs. 101/2018, i minori di età compresa tra 16 e 18 anni possono prestare validamente il proprio consenso al trattamento dei dati personali. Non raccogliamo consapevolmente dati di minori di 16 anni. Se ritieni che un minore di 16 anni abbia fornito dati personali, contattaci immediatamente a <a href="mailto:support@mafebalance.com">support@mafebalance.com</a> e provvederemo alla cancellazione.</p>
 
-        <h2>10. Modifiche alla presente Informativa</h2>
+        <h2>11. Modifiche alla presente Informativa</h2>
         <p>Potremmo aggiornare questa Informativa per riflettere modifiche al servizio o alla normativa applicabile. In caso di modifiche sostanziali, ti avviseremo tramite notifica in-app o email almeno 30 giorni prima dell'entrata in vigore. L'uso continuato del servizio dopo la notifica costituisce accettazione delle modifiche.</p>
         <p>La versione aggiornata sarà sempre disponibile nell'app alla sezione Impostazioni → Privacy Policy.</p>
 
-        <h2>11. Contatti</h2>
+        <h2>12. Contatti</h2>
         <p>Per qualsiasi domanda, dubbio o richiesta relativa alla presente Informativa o al trattamento dei tuoi dati personali:</p>
         <ul>
             <li><strong>Email:</strong> <a href="mailto:support@mafebalance.com">support@mafebalance.com</a></li>
