@@ -138,7 +138,7 @@
     <div class="container">
         <h1>Informativa sulla Privacy</h1>
         <div class="last-updated">
-            Ultima modifica: 20 agosto 2026 — Versione 1.8
+            Ultima modifica: 20 agosto 2026 — Versione 1.9
         </div>
 
         <div class="highlight">
@@ -196,8 +196,8 @@
         <ul>
             <li>Token del dispositivo per le notifiche push (archiviato localmente)</li>
             <li>Preferenze dell'app (tema, valuta) — archiviato localmente sul dispositivo</li>
-            <li>Log di errore e dati diagnostici anonimi per la manutenzione del servizio (tramite Firebase Crashlytics: stack trace, modello dispositivo, versione sistema operativo, identificatore installazione anonimo)</li>
-            <li>Feedback sulle categorizzazioni AI (categoria accettata/modificata) — archiviato nel database associato al tuo identificatore utente anonimo (UUID), non al nome né all'indirizzo email. Non viene utilizzato per addestrare modelli AI di terze parti.</li>
+            <li>Log di errore e dati diagnostici pseudonimizzati per la manutenzione del servizio (tramite Firebase Crashlytics): stack trace, modello dispositivo, versione sistema operativo, identificatore installazione (pseudonimo — non contiene nome né email, si azzera alla reinstallazione dell'app). I dati sono pseudonimizzati, non anonimizzati.</li>
+            <li>Feedback sulle categorizzazioni AI (categoria accettata/modificata) — archiviato nel database associato al tuo UUID utente (pseudonimo), non al nome né all'indirizzo email. Non viene utilizzato per addestrare modelli AI di terze parti.</li>
             <li>Schermate visitate nell'app — nome della schermata e timestamp, archiviati nel database Supabase associati al tuo UUID utente (pseudonimo). Utilizzati esclusivamente per analisi interne sull'utilizzo del prodotto. Nessun contenuto finanziario viene trasmesso. L'utente può disabilitare la raccolta da <strong>Impostazioni → Privacy</strong>.</li>
             <li>Contatori di utilizzo delle funzioni AI — numero di utilizzi giornalieri per funzione (categorizzazione AI, analisi scontrini, Smart Insights, Budget AI), archiviati nel database associati al tuo UUID utente. Utilizzati esclusivamente per applicare i limiti di utilizzo gratuito del servizio e non vengono condivisi con terzi.</li>
             <li>Identificatore pubblicitario (IDFA) — raccolto da Google AdMob <strong>esclusivamente se l'utente ha prestato consenso esplicito</strong> tramite App Tracking Transparency (ATT). In assenza di consenso non viene raccolto alcun identificatore pubblicitario e vengono mostrati solo annunci non personalizzati.</li>
@@ -518,7 +518,7 @@
 
         <div class="footer">
             <p><strong>© 2025-2026 Mafe Balance — Alessio Rongione. Tutti i diritti riservati.</strong></p>
-            <p>Versione 1.8 — Ultima modifica: 20 agosto 2026</p>
+            <p>Versione 1.9 — Ultima modifica: 20 agosto 2026</p>
         </div>
     </div>
 </body>
