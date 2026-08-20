@@ -138,7 +138,7 @@
     <div class="container">
         <h1>Informativa sulla Privacy</h1>
         <div class="last-updated">
-            Ultima modifica: 20 agosto 2026 — Versione 1.2
+            Ultima modifica: 20 agosto 2026 — Versione 1.3
         </div>
 
         <div class="highlight">
@@ -159,7 +159,7 @@
         <ul>
             <li>Non è un'autorità o organismo pubblico (art. 37.1.a);</li>
             <li>Le attività principali non consistono nel monitoraggio regolare e sistematico degli interessati su larga scala (art. 37.1.b) — Mafe Balance è un'app personale sviluppata da un singolo sviluppatore indipendente;</li>
-            <li>I dati trattati non rientrano nelle categorie particolari ex art. 9 GDPR (art. 37.1.c) — i dati finanziari personali non costituiscono categorie particolari ai sensi del GDPR.</li>
+            <li>I dati trattati non rientrano nelle categorie particolari espressamente elencate dall'art. 9 GDPR (art. 37.1.c). I dati finanziari non sono inclusi nell'elenco dell'art. 9; tuttavia, adottiamo misure di protezione equivalenti a quelle applicate ai dati ad alto rischio, in considerazione della natura sensibile delle informazioni e del potenziale impatto sui diritti degli interessati.</li>
         </ul>
         <p>Per qualsiasi questione relativa alla protezione dei dati il titolare è direttamente raggiungibile a <a href="mailto:support@mafebalance.com">support@mafebalance.com</a>. Qualora in futuro le dimensioni o le attività di trattamento dovessero cambiare, la valutazione verrà aggiornata.</p>
 
@@ -200,7 +200,7 @@
             <li>Feedback sulle categorizzazioni AI (categoria accettata/modificata) — archiviato nel database associato al tuo identificatore utente anonimo (UUID), non al nome né all'indirizzo email. Non viene utilizzato per addestrare modelli AI di terze parti.</li>
             <li>Schermate visitate nell'app — nome della schermata e timestamp, archiviati nel database Supabase associati al tuo UUID utente (pseudonimo). Utilizzati esclusivamente per analisi interne sull'utilizzo del prodotto. Nessun contenuto finanziario viene trasmesso. L'utente può disabilitare la raccolta da <strong>Impostazioni → Privacy</strong>.</li>
             <li>Contatori di utilizzo delle funzioni AI — numero di utilizzi giornalieri per funzione (categorizzazione AI, analisi scontrini, Smart Insights, Budget AI), archiviati nel database associati al tuo UUID utente. Utilizzati esclusivamente per applicare i limiti di utilizzo gratuito del servizio e non vengono condivisi con terzi.</li>
-            <li>Identificatore pubblicitario (IDFA su iOS, AAID su Android) — raccolto da Google AdMob <strong>esclusivamente se l'utente ha prestato consenso esplicito</strong> tramite App Tracking Transparency (iOS) o il form UMP (Android). In assenza di consenso non viene raccolto alcun identificatore pubblicitario e vengono mostrati solo annunci non personalizzati.</li>
+            <li>Identificatore pubblicitario (IDFA) — raccolto da Google AdMob <strong>esclusivamente se l'utente ha prestato consenso esplicito</strong> tramite App Tracking Transparency (ATT). In assenza di consenso non viene raccolto alcun identificatore pubblicitario e vengono mostrati solo annunci non personalizzati.</li>
         </ul>
 
         <h2>3. Finalità e Base Giuridica del Trattamento</h2>
@@ -266,7 +266,12 @@
                 <tr>
                     <td>Pubblicità in-app — piano gratuito (Google AdMob)</td>
                     <td>Identificatore pubblicitario (IDFA/AAID), informazioni dispositivo (modello, sistema operativo), dati di utilizzo dell'app</td>
-                    <td>Consenso esplicito (art. 6.1.a) — richiesto prima della visualizzazione di annunci personalizzati: tramite <strong>App Tracking Transparency (ATT)</strong> su iOS e tramite il <strong>form UMP (User Messaging Platform)</strong> su Android, conforme alla EU User Consent Policy e al framework IAB TCF v2. Puoi revocare il consenso in qualsiasi momento dalle impostazioni del dispositivo (iOS: Impostazioni → Privacy e sicurezza → Tracciamento; Android: Impostazioni → Google → Annunci). In assenza di consenso vengono mostrati esclusivamente annunci non personalizzati.</td>
+                    <td>Consenso esplicito (art. 6.1.a) — richiesto prima della visualizzazione di annunci personalizzati tramite <strong>App Tracking Transparency (ATT)</strong>. Puoi revocare il consenso in qualsiasi momento da <strong>Impostazioni → Privacy e sicurezza → Tracciamento</strong>. In assenza di consenso vengono mostrati esclusivamente annunci non personalizzati.</td>
+                </tr>
+                <tr>
+                    <td>Diagnostica crash e stabilità (Firebase Crashlytics)</td>
+                    <td>Stack trace, stato dispositivo al momento del crash, identificatore installazione anonimo</td>
+                    <td>Legittimo interesse (art. 6.1.f) — mantenere la stabilità e la qualità del servizio. I dati sono tecnici e non contengono dati finanziari né identificativi diretti. <strong>Diritto di opposizione (art. 21 GDPR):</strong> disabilita la raccolta da <strong>Impostazioni → Privacy</strong>.</td>
                 </tr>
                 <tr>
                     <td>Assistenza e supporto</td>
@@ -325,6 +330,14 @@
                     <td>Contatori utilizzo funzioni AI giornalieri (daily_quotas)</td>
                     <td>Fino alla cancellazione dell'account (eliminazione automatica a cascata)</td>
                 </tr>
+                <tr>
+                    <td>Dati Firebase Analytics (App Instance ID, eventi di utilizzo)</td>
+                    <td>Gestiti da Google secondo le impostazioni di conservazione del progetto Firebase (configurate a 14 mesi). Non è possibile cancellare singoli eventi analytics già trasmessi; la cancellazione dell'account interrompe la raccolta futura.</td>
+                </tr>
+                <tr>
+                    <td>Dati Firebase Crashlytics (stack trace, stato dispositivo)</td>
+                    <td>90 giorni (politica di conservazione di Firebase Crashlytics gestita da Google).</td>
+                </tr>
             </tbody>
         </table>
 
@@ -367,8 +380,8 @@
                 </tr>
                 <tr>
                     <td><strong>Google LLC</strong> (Firebase/FCM)</td>
-                    <td>Notifiche push Android</td>
-                    <td>Token dispositivo</td>
+                    <td>Notifiche push iOS (tramite APNs)</td>
+                    <td>Token dispositivo FCM</td>
                     <td>USA (trasferimento coperto da SCC/Data Privacy Framework EU-USA)</td>
                 </tr>
                 <tr>
@@ -386,7 +399,7 @@
                 <tr>
                     <td><strong>Google LLC</strong> (AdMob)</td>
                     <td>Pubblicità in-app (piano gratuito)</td>
-                    <td>Identificatore pubblicitario (IDFA/AAID), informazioni dispositivo, dati di utilizzo. Il consenso per la pubblicità personalizzata viene richiesto esplicitamente: su <strong>iOS</strong> tramite App Tracking Transparency (ATT); su <strong>Android</strong> tramite il form UMP (User Messaging Platform) di Google, conforme alla EU User Consent Policy e al framework IAB TCF v2. In assenza di consenso vengono mostrati esclusivamente annunci non personalizzati.</td>
+                    <td>Identificatore pubblicitario (IDFA), informazioni dispositivo, dati di utilizzo. Il consenso per la pubblicità personalizzata viene richiesto tramite <strong>App Tracking Transparency (ATT)</strong>. In assenza di consenso vengono mostrati esclusivamente annunci non personalizzati.</td>
                     <td>USA (trasferimento coperto da SCC/Data Privacy Framework EU-USA)</td>
                 </tr>
             </tbody>
@@ -441,43 +454,31 @@
             <tbody>
                 <tr>
                     <td>Internet</td>
-                    <td>iOS, Android</td>
+                    <td>iOS</td>
                     <td>Comunicazione con i server Supabase per la sincronizzazione dei dati e con i servizi di terze parti</td>
                     <td>Sì</td>
                 </tr>
                 <tr>
                     <td>Notifiche push</td>
-                    <td>iOS, Android</td>
+                    <td>iOS</td>
                     <td>Promemoria per budget, scadenze pagamenti e transazioni ricorrenti</td>
                     <td>No — richiesto al primo avvio; la negazione non compromette le funzionalità principali</td>
                 </tr>
                 <tr>
                     <td>Fotocamera</td>
-                    <td>iOS, Android</td>
+                    <td>iOS</td>
                     <td>Scansione di scontrini per l'aggiunta automatica di transazioni tramite AI</td>
                     <td>No — richiesto solo all'uso della funzione di scansione</td>
                 </tr>
                 <tr>
                     <td>Libreria foto / Galleria</td>
-                    <td>iOS, Android</td>
+                    <td>iOS</td>
                     <td>Selezione di immagini di scontrini dalla galleria o importazione di file CSV</td>
                     <td>No — richiesto solo alla selezione di un'immagine dalla galleria</td>
                 </tr>
-                <tr>
-                    <td>Avvio con il dispositivo (RECEIVE_BOOT_COMPLETED)</td>
-                    <td>Android</td>
-                    <td>Ri-programmazione delle notifiche locali dopo il riavvio del dispositivo</td>
-                    <td>Sì (Android) — garantisce la continuità delle notifiche</td>
-                </tr>
-                <tr>
-                    <td>Allarmi esatti (SCHEDULE_EXACT_ALARM / USE_EXACT_ALARM)</td>
-                    <td>Android</td>
-                    <td>Programmazione precisa delle notifiche di promemoria all'orario impostato dall'utente</td>
-                    <td>Sì (Android) — necessario per notifiche puntuali</td>
-                </tr>
             </tbody>
         </table>
-        <p>Puoi revocare i permessi facoltativi in qualsiasi momento dalle impostazioni del dispositivo (iOS: <strong>Impostazioni → Mafe Balance</strong>; Android: <strong>Impostazioni → App → Mafe Balance → Permessi</strong>). La revoca non comporta la cancellazione dei dati già inseriti nell'app.</p>
+        <p>Puoi revocare i permessi facoltativi in qualsiasi momento da <strong>Impostazioni → Mafe Balance</strong>. La revoca non comporta la cancellazione dei dati già inseriti nell'app.</p>
 
         <h2>10. Minori</h2>
         <p>Il servizio è destinato a persone di almeno 16 anni. Ai sensi dell'art. 8 GDPR e del D.Lgs. 101/2018, i minori di età compresa tra 16 e 18 anni possono prestare validamente il proprio consenso al trattamento dei dati personali. Non raccogliamo consapevolmente dati di minori di 16 anni. Se ritieni che un minore di 16 anni abbia fornito dati personali, contattaci immediatamente a <a href="mailto:support@mafebalance.com">support@mafebalance.com</a> e provvederemo alla cancellazione.</p>
@@ -495,7 +496,7 @@
 
         <div class="footer">
             <p><strong>© 2025-2026 Mafe Balance — Alessio Rongione. Tutti i diritti riservati.</strong></p>
-            <p>Versione 1.2 — Ultima modifica: 20 agosto 2026</p>
+            <p>Versione 1.3 — Ultima modifica: 20 agosto 2026</p>
         </div>
     </div>
 </body>
