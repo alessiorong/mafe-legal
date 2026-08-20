@@ -74,8 +74,9 @@ Policy attuale: privacy.html v1.3 · terms.html v1.1
 
 ## TODO aperti
 
-- [ ] Caricare IPA 1.1.4+21 su App Store Connect
-- [ ] Aggiornare descrizione e keywords App Store (testo pronto, non ancora caricato)
-- [ ] Implementare interstitial ads (AD_IMPROVEMENTS.md punto 4)
-- [ ] Valutare se eliminare privacy_en.html (app solo italiana, file non più manutenuto)
+- [ ] Caricare IPA 1.1.4+21 su App Store Connect — usare app **Transporter** (Mac App Store)
+- [ ] Aggiornare descrizione e keywords App Store — accesso manuale ad App Store Connect
+- [ ] Creare ad unit Interstitial su AdMob e sostituire il test ID in ad_service.dart (`_prodInterstitialId`)
+- [x] Implementare interstitial ads — AdService + MainNavigationScreen (trigger: 5+ min in background)
+- [x] Eliminare privacy_en.html — rimossa (app solo italiana)
 - [ ] Re-run compliance check dopo aggiornamento GitHub Pages per verifica
