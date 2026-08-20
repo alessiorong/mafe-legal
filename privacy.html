@@ -138,7 +138,7 @@
     <div class="container">
         <h1>Informativa sulla Privacy</h1>
         <div class="last-updated">
-            Ultima modifica: 5 luglio 2026 — Versione 1.0
+            Ultima modifica: 20 agosto 2026 — Versione 1.1
         </div>
 
         <div class="highlight">
@@ -198,6 +198,7 @@
             <li>Preferenze dell'app (tema, valuta) — archiviato localmente sul dispositivo</li>
             <li>Log di errore e dati diagnostici anonimi per la manutenzione del servizio (tramite Firebase Crashlytics: stack trace, modello dispositivo, versione sistema operativo, identificatore installazione anonimo)</li>
             <li>Feedback sulle categorizzazioni AI (categoria accettata/modificata) — archiviato nel database associato al tuo identificatore utente anonimo (UUID), non al nome né all'indirizzo email. Non viene utilizzato per addestrare modelli AI di terze parti.</li>
+            <li>Schermate visitate nell'app — nome della schermata e timestamp, archiviati nel database Supabase associati al tuo UUID utente (pseudonimo). Utilizzati esclusivamente per analisi interne sull'utilizzo del prodotto. Nessun contenuto finanziario viene trasmesso. L'utente può disabilitare la raccolta da <strong>Impostazioni → Privacy</strong>.</li>
             <li>Identificatore pubblicitario (IDFA su iOS, AAID su Android) — raccolto da Google AdMob <strong>esclusivamente se l'utente ha prestato consenso esplicito</strong> tramite App Tracking Transparency (iOS) o il form UMP (Android). In assenza di consenso non viene raccolto alcun identificatore pubblicitario e vengono mostrati solo annunci non personalizzati.</li>
         </ul>
 
@@ -333,8 +334,8 @@
             <tbody>
                 <tr>
                     <td><strong>Supabase Inc.</strong></td>
-                    <td>Database, autenticazione, backend</td>
-                    <td>Tutti i dati dell'account e finanziari</td>
+                    <td>Database, autenticazione, backend, analytics schermate</td>
+                    <td>Tutti i dati dell'account e finanziari; schermate visitate (nome schermata + timestamp, associati all'UUID utente pseudonimo — nessun dato finanziario)</td>
                     <td>UE — server Paris, West EU (Francia). La società è costituita negli USA ma i dati di questo servizio sono trattati esclusivamente su infrastruttura europea.</td>
                 </tr>
                 <tr>
@@ -345,9 +346,15 @@
                 </tr>
                 <tr>
                     <td><strong>Apple Inc.</strong></td>
-                    <td>App Store, notifiche push (APNs)</td>
-                    <td>Token dispositivo</td>
+                    <td>App Store, notifiche push (APNs), autenticazione OAuth (Sign in with Apple)</td>
+                    <td>Token dispositivo; identificativo utente anonimo Apple (sub claim) per autenticazione — Apple non condivide l'indirizzo email reale a meno che l'utente non scelga esplicitamente di farlo</td>
                     <td>USA (trasferimento coperto da Data Privacy Framework EU-USA)</td>
+                </tr>
+                <tr>
+                    <td><strong>Google LLC</strong> (Google Sign-In)</td>
+                    <td>Autenticazione OAuth tramite account Google</td>
+                    <td>Indirizzo email e identificativo utente Google (sub claim), usati esclusivamente per creare o autenticare l'account Mafe Balance. Non vengono condivisi con terzi né usati per profilazione.</td>
+                    <td>USA (trasferimento coperto da SCC/Data Privacy Framework EU-USA)</td>
                 </tr>
                 <tr>
                     <td><strong>Google LLC</strong> (Firebase/FCM)</td>
@@ -479,7 +486,7 @@
 
         <div class="footer">
             <p><strong>© 2025-2026 Mafe Balance — Alessio Rongione. Tutti i diritti riservati.</strong></p>
-            <p>Versione 1.0 — Ultima modifica: 5 luglio 2026</p>
+            <p>Versione 1.1 — Ultima modifica: 20 agosto 2026</p>
         </div>
     </div>
 </body>
