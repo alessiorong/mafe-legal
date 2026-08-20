@@ -138,7 +138,7 @@
     <div class="container">
         <h1>Informativa sulla Privacy</h1>
         <div class="last-updated">
-            Ultima modifica: 20 agosto 2026 — Versione 1.5
+            Ultima modifica: 20 agosto 2026 — Versione 1.6
         </div>
 
         <div class="highlight">
@@ -312,7 +312,7 @@
                     <td>Fino alla cancellazione dell'account</td>
                 </tr>
                 <tr>
-                    <td>Dati abbonamento — registrazioni fiscali. Dati esatti conservati: <strong>importo pagato, data dell'operazione, tipo di piano acquistato, identificativo transazione dello store (App Store / Google Play)</strong>. Non include: email, nome, dati finanziari dell'utente, cronologia transazioni personali.</td>
+                    <td>Dati abbonamento — registrazioni fiscali. Dati esatti conservati: <strong>importo pagato, data dell'operazione, tipo di piano acquistato, identificativo transazione App Store</strong>. Non include: email, nome, dati finanziari dell'utente, cronologia transazioni personali.</td>
                     <td>10 anni dall'operazione, ai sensi dell'art. 2220 c.c. e del DPR 633/72 (obbligo di conservazione delle scritture contabili). <strong>In caso di cancellazione dell'account, solo questi campi fiscali minimi vengono trattenuti per l'obbligo di legge; tutti gli altri dati personali vengono eliminati immediatamente.</strong></td>
                 </tr>
                 <tr>
@@ -338,6 +338,22 @@
                 <tr>
                     <td>Dati Firebase Crashlytics (stack trace, stato dispositivo)</td>
                     <td>90 giorni (politica di conservazione di Firebase Crashlytics gestita da Google).</td>
+                </tr>
+                <tr>
+                    <td>Token dispositivo FCM (notifiche push)</td>
+                    <td>Fino al refresh automatico del token da parte di Firebase (tipicamente alla disinstallazione dell'app o al cambio dispositivo). Il token non è archiviato nel nostro database; è gestito da Firebase/APNs.</td>
+                </tr>
+                <tr>
+                    <td>Identificatore pubblicitario (IDFA)</td>
+                    <td>Non archiviato sui nostri server. Gestito da Google AdMob secondo la propria policy sulla privacy. Revocabile in qualsiasi momento da <strong>Impostazioni → Privacy e sicurezza → Tracciamento</strong>.</td>
+                </tr>
+                <tr>
+                    <td>Preferenze app (tema, valuta)</td>
+                    <td>Archiviate esclusivamente in locale sul dispositivo (SharedPreferences). Non trasmesse ai nostri server. Eliminate automaticamente alla disinstallazione dell'app.</td>
+                </tr>
+                <tr>
+                    <td>Dati di assistenza e supporto (email, dettagli segnalati)</td>
+                    <td>Fino alla risoluzione della richiesta e per un massimo di 2 anni, per consentire la gestione di eventuali reclami o contestazioni successive.</td>
                 </tr>
             </tbody>
         </table>
@@ -497,7 +513,7 @@
 
         <div class="footer">
             <p><strong>© 2025-2026 Mafe Balance — Alessio Rongione. Tutti i diritti riservati.</strong></p>
-            <p>Versione 1.5 — Ultima modifica: 20 agosto 2026</p>
+            <p>Versione 1.6 — Ultima modifica: 20 agosto 2026</p>
         </div>
     </div>
 </body>
