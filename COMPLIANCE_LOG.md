@@ -1,7 +1,32 @@
 # Compliance Log — Mafe Balance
 
-Ultimo aggiornamento: 20 agosto 2026
-Policy attuale: privacy.html v1.3 · terms.html v1.1
+Ultimo aggiornamento: 27 settembre 2026
+Policy attuale: privacy.html v2.3 · terms.html v1.4
+
+---
+
+## Aggiornamento 27 settembre 2026 — Nuove Impostazioni e preferenze notifiche
+
+Allineamento dei documenti all'app: nuove voci delle Impostazioni, preferenze
+notifiche per tipo salvate sul server, avvisi di budget automatici.
+
+### privacy.html v2.3
+- §2.5: aggiunte le preferenze di notifica, archiviate su Supabase (non più solo preferenze locali)
+- §2.5 e §3 Firebase Analytics: opt-out nell'app da Impostazioni → Privacy e AI (prima indicato "dalle impostazioni del dispositivo")
+- §2.6 e §3 notifiche push: elencati promemoria all'orario scelto, avvisi budget 80% / 100% / superamento / rinnovo, ricorrenti e risparmio automatico; dati trattati (token, preferenze, contenuto della notifica); disattivazione per tipo da Impostazioni → Notifiche
+- §3 email di re-engagement: opt-out tramite l'interruttore "Email di promemoria"
+- §4: aggiunta conservazione delle preferenze di notifica (fino alla cancellazione dell'account)
+- §5 Google (Firebase/FCM): corretto "notifiche push Android" in notifiche iOS tramite APNs, aggiunto il contenuto della notifica
+- §6: percorso Impostazioni → Elimina account; portabilità in formato JSON (non CSV) da Impostazioni → Esporta i miei dati
+- §8: le preferenze di notifica sono salvate sul server
+- §10: percorso Impostazioni → Note legali → Informativa privacy
+
+### terms.html v1.4
+- §diritti GDPR: percorsi Impostazioni → Elimina account ed Esporta i miei dati; export solo JSON
+- §19: tipi di notifica aggiornati, disattivabili singolarmente da Impostazioni → Notifiche
+
+### index.html
+- Sostituiti i vecchi Termini v1.0 (19 aprile 2026, citavano anche Android) con una pagina che rimanda ai documenti in vigore
 
 ---
 
