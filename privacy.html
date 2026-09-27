@@ -177,7 +177,7 @@
         <p><strong>Trasmissione a servizi AI:</strong> per le funzioni di intelligenza artificiale, i seguenti dati vengono trasmessi a <strong>Google Gemini AI</strong> (vedi §5) in forma pseudonimizzata (senza nome o email dell'utente):</p>
         <ul>
             <li><strong>Categorizzazione transazioni:</strong> descrizione, importo, data, nome del merchant e fino a 5 transazioni storiche simili dell'utente</li>
-            <li><strong>Insight finanziari:</strong> statistiche aggregate per categoria (media mensile, trend, pattern orario e settimanale), reddito medio stimato, profilo di spesa, informazioni su abbonamenti potenzialmente inutilizzati</li>
+            <li><strong>Insight finanziari:</strong> statistiche aggregate per categoria (media mensile, trend, pattern orario e settimanale), reddito medio stimato, profilo di spesa, informazioni su abbonamenti potenzialmente inutilizzati, e i tipi di consiglio (es. «abbonamenti») che hai valutato utili o non utili</li>
             <li><strong>Suggerimenti di budget:</strong> storico aggregato per categoria con trend degli ultimi 3 mesi (media, mediana, numero transazioni)</li>
             <li><strong>Obiettivi di risparmio:</strong> nome obiettivo, importo target, importo accumulato, data scadenza — usati per personalizzare i suggerimenti</li>
             <li><strong>Correzioni manuali di categoria:</strong> la descrizione completa della transazione viene inviata a Gemini per aggiornare l'associazione merchant→categoria</li>
@@ -204,6 +204,7 @@
             <li>Data e ora dell'ultimo accesso all'app (<em>last_active</em>) — utilizzata per la gestione delle notifiche e delle comunicazioni di re-engagement</li>
             <li>Indirizzo IP — raccolto temporaneamente per la protezione da abusi (rate limiting) nelle chiamate AI; archiviato nei log di utilizzo API</li>
             <li>Feedback sulle categorizzazioni AI (categoria accettata/modificata)</li>
+            <li>Valutazione dei consigli AI (utile / non utile) — usata per dare meno spazio ai tipi di consiglio che non trovi utili</li>
             <li>Data dell'ultimo invio di email di re-engagement — utilizzata per evitare comunicazioni ripetute ravvicinate</li>
         </ul>
 
@@ -298,7 +299,7 @@
                 </tr>
                 <tr>
                     <td>Miglioramento del servizio (feedback AI)</td>
-                    <td>Categorie accettate/modificate</td>
+                    <td>Categorie accettate/modificate, valutazione dei consigli AI</td>
                     <td>Legittimo interesse (art. 6.1.f)</td>
                 </tr>
                 <tr>
@@ -357,6 +358,10 @@
                 <tr>
                     <td>Dati feedback AI (categorie)</td>
                     <td>Fino alla cancellazione dell'account</td>
+                </tr>
+                <tr>
+                    <td>Valutazioni dei consigli AI</td>
+                    <td>Fino alla generazione successiva dei consigli o alla cancellazione dell'account</td>
                 </tr>
                 <tr>
                     <td>Dati abbonamento</td>

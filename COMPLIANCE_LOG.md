@@ -20,6 +20,7 @@ notifiche per tipo salvate sul server, avvisi di budget automatici.
 - §6: percorso Impostazioni → Elimina account; portabilità in formato JSON (non CSV) da Impostazioni → Esporta i miei dati
 - §8: le preferenze di notifica sono salvate sul server
 - §10: percorso Impostazioni → Note legali → Informativa privacy
+- §2.2, §2.5, §3, §4: valutazione dei consigli AI (utile / non utile): dato raccolto, finalità (legittimo interesse, miglioramento del servizio), conservazione fino alla generazione successiva dei consigli; all'AI arriva solo il tipo di consiglio valutato
 
 ### terms.html v1.4
 - §diritti GDPR: percorsi Impostazioni → Elimina account ed Esporta i miei dati; export solo JSON
