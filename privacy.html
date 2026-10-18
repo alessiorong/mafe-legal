@@ -138,7 +138,7 @@
     <div class="container">
         <h1>Informativa sulla Privacy</h1>
         <div class="last-updated">
-            Ultima modifica: 6 settembre 2026 — Versione 2.2
+            Ultima modifica: 17 ottobre 2026 — Versione 2.4
         </div>
 
         <div class="highlight">
@@ -177,12 +177,13 @@
         <p><strong>Trasmissione a servizi AI:</strong> per le funzioni di intelligenza artificiale, i seguenti dati vengono trasmessi a <strong>Google Gemini AI</strong> (vedi §5) in forma pseudonimizzata (senza nome o email dell'utente):</p>
         <ul>
             <li><strong>Categorizzazione transazioni:</strong> descrizione, importo, data, nome del merchant e fino a 5 transazioni storiche simili dell'utente</li>
-            <li><strong>Insight finanziari:</strong> statistiche aggregate per categoria (media mensile, trend, pattern orario e settimanale), reddito medio stimato, profilo di spesa, informazioni su abbonamenti potenzialmente inutilizzati</li>
+            <li><strong>Insight finanziari:</strong> statistiche aggregate per categoria (media mensile, trend, pattern orario e settimanale), reddito medio stimato, profilo di spesa, informazioni su abbonamenti potenzialmente inutilizzati, e i tipi di consiglio (es. «abbonamenti») che hai valutato utili o non utili</li>
             <li><strong>Suggerimenti di budget:</strong> storico aggregato per categoria con trend degli ultimi 3 mesi (media, mediana, numero transazioni)</li>
             <li><strong>Obiettivi di risparmio:</strong> nome obiettivo, importo target, importo accumulato, data scadenza — usati per personalizzare i suggerimenti</li>
             <li><strong>Correzioni manuali di categoria:</strong> la descrizione completa della transazione viene inviata a Gemini per aggiornare l'associazione merchant→categoria</li>
             <li><strong>Rilevamento anomalie di spesa:</strong> storico delle transazioni per categoria, importi abituali e deviazioni statistiche — per identificare automaticamente spese inusuali rispetto ai pattern dell'utente</li>
             <li><strong>Parser AI (inserimento veloce):</strong> solo il testo libero inserito dall'utente (es. "pagato 45€ cena ristorante") per generare automaticamente una transazione strutturata — nessun altro dato dell'account è incluso</li>
+            <li><strong>Analisi screenshot condivisi (Share Extension):</strong> l'immagine JPEG dello screenshot (ridimensionata automaticamente a max 2048 px) viene trasmessa a Gemini Vision AI per classificarne il contenuto (transazione, prodotto, estratto conto o contenuto non riconoscibile) ed estrarne i dati rilevanti — nessun dato testuale del tuo account è incluso nella richiesta</li>
         </ul>
         <p>Questi dati non vengono utilizzati da Google per addestrare i propri modelli in base alle impostazioni contrattuali applicate.</p>
 
@@ -190,19 +191,22 @@
         <p>Se utilizzi la funzione "Gruppi di Spesa", puoi inserire nome, email e numero di telefono di altre persone (partecipanti). Per questi dati di terzi, l'utente agisce come <strong>responsabile autonomo del trattamento</strong> ed è tenuto a informare i partecipanti prima dell'inserimento e a ottenerne il consenso, ove necessario ai sensi del GDPR.</p>
         <p>Questi dati vengono usati <strong>esclusivamente per il calcolo dei bilanci di gruppo</strong>, <strong>non vengono mai trasmessi a servizi AI</strong> e non vengono condivisi con terzi. I dati dei partecipanti vengono eliminati automaticamente quando l'utente elimina il gruppo di spesa o cancella il proprio account. I partecipanti possono richiedere la cancellazione dei propri dati contattando direttamente l'utente che li ha inseriti oppure scrivendo a <a href="mailto:support@mafebalance.com">support@mafebalance.com</a>.</p>
 
-        <h3>2.4 Immagini di Scontrini</h3>
+        <h3>2.4 Immagini di Scontrini e Screenshot</h3>
         <p>Se utilizzi la funzione di scansione scontrini, l'immagine viene trasmessa a servizi di intelligenza artificiale di terze parti (vedi §5) per l'estrazione dei dati. La trasmissione avviene esclusivamente tramite connessione cifrata (<strong>HTTPS/TLS</strong>). <strong>L'immagine grezza non viene archiviata permanentemente nei nostri server dopo l'elaborazione.</strong> I dati estratti dallo scontrino (nome del merchant e importo totale) vengono invece conservati nel nostro database associati al tuo account, nella tabella della cronologia scansioni, fino alla cancellazione dell'account.</p>
+        <p><strong>Screenshot condivisi via Share Extension:</strong> se utilizzi la funzione di condivisione diretta (Share Extension di iOS), puoi inviare uno screenshot a Mafe Balance direttamente dal menu di condivisione del sistema. L'immagine viene automaticamente ridimensionata a massimo 2048 px lato lungo e trasmessa in formato JPEG a Google Gemini Vision AI (vedi §5) per classificarne il contenuto ed estrarne i dati rilevanti (importo, merchant, data, tipologia). <strong>L'immagine non viene archiviata sui nostri server</strong> — viene elaborata in tempo reale e scartata al termine dell'analisi. I dati estratti vengono pre-compilati nei campi dell'app e l'utente li verifica e conferma prima di qualsiasi salvataggio. L'utilizzo della Share Extension è completamente facoltativo.</p>
 
         <h3>2.5 Dati Tecnici e di Utilizzo</h3>
         <ul>
             <li>Token del dispositivo per le notifiche push (trasmesso a Firebase/FCM e Apple APNs per la consegna delle notifiche)</li>
-            <li>Preferenze dell'app (tema, valuta) — archiviato localmente sul dispositivo</li>
+            <li>Preferenze dell'app (tema, valuta) — archiviate localmente sul dispositivo</li>
+            <li>Preferenze di notifica (tipi di notifica attivi, orario del promemoria giornaliero, email di promemoria) — archiviate nel nostro database Supabase associate al tuo account, per applicarle alle notifiche push e alle email</li>
             <li>Dati diagnostici per la manutenzione del servizio (tramite Firebase Crashlytics): stack trace, modello dispositivo, versione sistema operativo, identificatore installazione anonimo</li>
-            <li>Dati di utilizzo pseudonimizzati (tramite Firebase Analytics): schermate visitate, eventi di utilizzo, <strong>App Instance ID</strong> (identificatore anonimo dell'installazione dell'app, generato da Firebase e non riconducibile all'identità reale dell'utente) e <strong>UUID pseudonimo</strong> (identificatore casuale generato internamente da Mafe Balance, non associato a nome o email) — utilizzati esclusivamente per analytics interni aggregati; l'opt-out è disponibile dalle impostazioni del dispositivo</li>
+            <li>Dati di utilizzo pseudonimizzati (tramite Firebase Analytics): schermate visitate, eventi di utilizzo, <strong>App Instance ID</strong> (identificatore anonimo dell'installazione dell'app, generato da Firebase e non riconducibile all'identità reale dell'utente) e <strong>UUID pseudonimo</strong> (identificatore casuale generato internamente da Mafe Balance, non associato a nome o email) — utilizzati esclusivamente per analytics interni aggregati; l'opt-out è disponibile nell'app da <em>Impostazioni → Privacy e AI</em></li>
             <li>Schermate visitate e timestamp di accesso, archiviati nel nostro database Supabase associati al tuo identificatore utente — utilizzati per la dashboard di amministrazione interna e per valutare il comportamento aggregato degli utenti</li>
             <li>Data e ora dell'ultimo accesso all'app (<em>last_active</em>) — utilizzata per la gestione delle notifiche e delle comunicazioni di re-engagement</li>
             <li>Indirizzo IP — raccolto temporaneamente per la protezione da abusi (rate limiting) nelle chiamate AI; archiviato nei log di utilizzo API</li>
             <li>Feedback sulle categorizzazioni AI (categoria accettata/modificata)</li>
+            <li>Valutazione dei consigli AI (utile / non utile) — usata per dare meno spazio ai tipi di consiglio che non trovi utili</li>
             <li>Data dell'ultimo invio di email di re-engagement — utilizzata per evitare comunicazioni ripetute ravvicinate</li>
         </ul>
 
@@ -211,7 +215,7 @@
         <ul>
             <li><strong>Camera:</strong> utilizzata solo per la scansione degli scontrini. L'accesso viene richiesto al momento dell'utilizzo e può essere revocato in qualsiasi momento da <em>Impostazioni iOS → Mafe Balance → Camera</em>.</li>
             <li><strong>Libreria Foto:</strong> utilizzata solo per selezionare un'immagine di scontrino già salvata nel dispositivo. L'accesso può essere revocato da <em>Impostazioni iOS → Mafe Balance → Foto</em>.</li>
-            <li><strong>Notifiche:</strong> utilizzate per inviare promemoria di budget, transazioni ricorrenti e aggiornamenti degli obiettivi di risparmio tramite Firebase Cloud Messaging (FCM) e Apple APNs. Il consenso viene richiesto al primo avvio e può essere revocato da <em>Impostazioni iOS → Notifiche → Mafe Balance</em>.</li>
+            <li><strong>Notifiche:</strong> utilizzate per inviare il promemoria giornaliero all'orario scelto, gli avvisi di budget (80%, 100% e superamento del limite, rinnovo mensile), le notifiche dei movimenti ricorrenti registrati e del risparmio automatico sugli obiettivi, tramite Firebase Cloud Messaging (FCM) e Apple APNs. Il consenso viene richiesto al primo avvio e può essere revocato da <em>Impostazioni iOS → Notifiche → Mafe Balance</em>; puoi inoltre scegliere quali notifiche ricevere da <em>Impostazioni → Notifiche</em> nell'app.</li>
             <li><strong>Tracciamento (App Tracking Transparency — ATT):</strong> richiesto da AdMob per la pubblicità personalizzata, <strong>solo per gli utenti del piano gratuito</strong>. Puoi revocare il consenso in qualsiasi momento da <em>Impostazioni iOS → Privacy e sicurezza → Tracciamento</em> oppure da <em>Impostazioni iOS → Mafe Balance → Tracciamento</em>. Senza consenso ATT, AdMob mostra comunque pubblicità contestuale non personalizzata.</li>
         </ul>
 
@@ -246,14 +250,19 @@
                     <td>Consenso esplicito (art. 6.1.a) — funzione opzionale</td>
                 </tr>
                 <tr>
+                    <td>Analisi screenshot condivisi via Share Extension</td>
+                    <td>Immagine screenshot (JPEG, ridimensionata a max 2048 px)</td>
+                    <td>Esecuzione del contratto (art. 6.1.b) — funzione opzionale attivata volontariamente dall'utente tramite la Share Extension di iOS</td>
+                </tr>
+                <tr>
                     <td>Suggerimenti budget AI</td>
                     <td>Storico transazioni anonimizzato</td>
                     <td>Esecuzione del contratto (art. 6.1.b)</td>
                 </tr>
                 <tr>
-                    <td>Notifiche push (budget, ricorrenti, obiettivi) tramite FCM e APNs</td>
-                    <td>Token dispositivo</td>
-                    <td>Consenso esplicito dell'utente (art. 6.1.a) — richiesto da iOS al primo avvio; revocabile da <em>Impostazioni iOS → Notifiche → Mafe Balance</em></td>
+                    <td>Notifiche push (promemoria giornaliero, avvisi di budget, movimenti ricorrenti, risparmio automatico) tramite FCM e APNs</td>
+                    <td>Token dispositivo, preferenze di notifica, contenuto della notifica (es. nome, limite e spesa del budget)</td>
+                    <td>Consenso esplicito dell'utente (art. 6.1.a) — richiesto da iOS al primo avvio; revocabile da <em>Impostazioni iOS → Notifiche → Mafe Balance</em>; i singoli tipi di notifica si disattivano da <em>Impostazioni → Notifiche</em> nell'app</td>
                 </tr>
                 <tr>
                     <td>Pubblicità in-app (AdMob — solo piano gratuito)</td>
@@ -273,7 +282,7 @@
                 <tr>
                     <td>Analytics di utilizzo aggregati (Firebase Analytics)</td>
                     <td>UUID pseudonimo, schermate visitate, App Instance ID</td>
-                    <td>Legittimo interesse (art. 6.1.f) — miglioramento del servizio; opt-out disponibile nelle impostazioni del dispositivo</td>
+                    <td>Legittimo interesse (art. 6.1.f) — miglioramento del servizio; opt-out disponibile nell'app da <em>Impostazioni → Privacy e AI</em></td>
                 </tr>
                 <tr>
                     <td>Tracciamento schermate visitate interno (Supabase)</td>
@@ -283,7 +292,7 @@
                 <tr>
                     <td>Email di re-engagement per utenti inattivi</td>
                     <td>Email, data ultimo accesso, data ultimo invio</td>
-                    <td>Legittimo interesse (art. 6.1.f) — riattivazione utenti; opt-out disponibile disattivando le notifiche in Impostazioni → Notifiche</td>
+                    <td>Legittimo interesse (art. 6.1.f) — riattivazione utenti; opt-out disponibile disattivando <em>Email di promemoria</em> (o tutte le notifiche) in <em>Impostazioni → Notifiche</em></td>
                 </tr>
                 <tr>
                     <td>Risparmio automatico programmato (Auto-Save)</td>
@@ -297,7 +306,7 @@
                 </tr>
                 <tr>
                     <td>Miglioramento del servizio (feedback AI)</td>
-                    <td>Categorie accettate/modificate</td>
+                    <td>Categorie accettate/modificate, valutazione dei consigli AI</td>
                     <td>Legittimo interesse (art. 6.1.f)</td>
                 </tr>
                 <tr>
@@ -330,6 +339,10 @@
                     <td>Non archiviate — elaborate in tempo reale e scartate</td>
                 </tr>
                 <tr>
+                    <td>Screenshot condivisi via Share Extension</td>
+                    <td>Non archiviati — elaborati in tempo reale e scartati</td>
+                </tr>
+                <tr>
                     <td>Dati estratti dagli scontrini (merchant, importo)</td>
                     <td>Fino alla cancellazione dell'account</td>
                 </tr>
@@ -350,8 +363,16 @@
                     <td>Fino alla cancellazione dell'account</td>
                 </tr>
                 <tr>
+                    <td>Preferenze di notifica</td>
+                    <td>Fino alla cancellazione dell'account</td>
+                </tr>
+                <tr>
                     <td>Dati feedback AI (categorie)</td>
                     <td>Fino alla cancellazione dell'account</td>
+                </tr>
+                <tr>
+                    <td>Valutazioni dei consigli AI</td>
+                    <td>Fino alla generazione successiva dei consigli o alla cancellazione dell'account</td>
                 </tr>
                 <tr>
                     <td>Dati abbonamento</td>
@@ -381,8 +402,8 @@
                 </tr>
                 <tr>
                     <td><strong>Google LLC</strong> (Gemini API — modello: Gemini 2.5 Flash)</td>
-                    <td>Intelligenza artificiale (categorizzazione transazioni, suggerimenti budget, analisi scontrini, insight finanziari)</td>
-                    <td>Descrizioni, importi, date, merchant delle transazioni; storico transazioni simili; statistiche aggregate per categoria; reddito medio stimato; profilo finanziario; obiettivi di risparmio; immagini scontrini</td>
+                    <td>Intelligenza artificiale (categorizzazione transazioni, suggerimenti budget, analisi scontrini, analisi screenshot condivisi via Share Extension, insight finanziari)</td>
+                    <td>Descrizioni, importi, date, merchant delle transazioni; storico transazioni simili; statistiche aggregate per categoria; reddito medio stimato; profilo finanziario; obiettivi di risparmio; immagini scontrini; screenshot condivisi via Share Extension (JPEG, max 2048 px)</td>
                     <td>USA</td>
                 </tr>
                 <tr>
@@ -399,8 +420,8 @@
                 </tr>
                 <tr>
                     <td><strong>Google LLC</strong> (Firebase/FCM)</td>
-                    <td>Notifiche push Android</td>
-                    <td>Token dispositivo</td>
+                    <td>Invio delle notifiche push iOS tramite Apple APNs</td>
+                    <td>Token dispositivo, contenuto della notifica</td>
                     <td>USA</td>
                 </tr>
                 <tr>
@@ -453,9 +474,9 @@
         <ul>
             <li><strong>Accesso (art. 15):</strong> puoi richiedere una copia dei tuoi dati personali.</li>
             <li><strong>Rettifica (art. 16):</strong> puoi richiedere la correzione di dati inesatti o incompleti.</li>
-            <li><strong>Cancellazione / Diritto all'oblio (art. 17):</strong> puoi richiedere la cancellazione dei tuoi dati. Puoi farlo direttamente dall'app (Impostazioni → Cancella Account) oppure via email.</li>
+            <li><strong>Cancellazione / Diritto all'oblio (art. 17):</strong> puoi richiedere la cancellazione dei tuoi dati. Puoi farlo direttamente dall'app (<em>Impostazioni → Elimina account</em>) oppure via email.</li>
             <li><strong>Limitazione del trattamento (art. 18):</strong> puoi richiedere di limitare il trattamento in determinate circostanze.</li>
-            <li><strong>Portabilità (art. 20):</strong> puoi richiedere i tuoi dati in formato strutturato e leggibile da macchina (JSON/CSV) per trasferirli ad altro servizio.</li>
+            <li><strong>Portabilità (art. 20):</strong> puoi richiedere i tuoi dati in formato strutturato e leggibile da macchina (JSON) per trasferirli ad altro servizio. Puoi scaricarli direttamente dall'app da <em>Impostazioni → Esporta i miei dati</em>.</li>
             <li><strong>Opposizione (art. 21):</strong> puoi opporti al trattamento basato su legittimo interesse.</li>
             <li><strong>Revoca del consenso:</strong> dove il trattamento si basa sul consenso, puoi revocarlo in qualsiasi momento senza pregiudicare la liceità del trattamento precedente.</li>
         </ul>
@@ -474,14 +495,14 @@
         <p>Nonostante queste misure, nessun sistema è inviolabile. In caso di violazione dei dati (data breach) che comporti un rischio per i tuoi diritti, ti notificheremo tempestivamente secondo quanto previsto dall'art. 34 GDPR.</p>
 
         <h2>8. Cookie e Tecnologie di Tracciamento</h2>
-        <p>Mafe Balance è un'applicazione mobile e <strong>non utilizza cookie</strong>. Alcune preferenze dell'app (tema, valuta) sono archiviate localmente sul tuo dispositivo tramite SharedPreferences e non vengono trasmesse a server esterni.</p>
+        <p>Mafe Balance è un'applicazione mobile e <strong>non utilizza cookie</strong>. Alcune preferenze dell'app (tema, valuta) sono archiviate localmente sul tuo dispositivo tramite SharedPreferences e non vengono trasmesse a server esterni. Le preferenze di notifica sono invece salvate nel nostro database, come indicato al §2.5.</p>
 
         <h2>9. Minori</h2>
         <p>Il servizio è destinato a persone di almeno 18 anni. Non raccogliamo consapevolmente dati di minori di 16 anni. Se ritieni che un minore abbia fornito dati personali senza consenso dei genitori, contattaci immediatamente a <a href="mailto:support@mafebalance.com">support@mafebalance.com</a> e provvederemo alla cancellazione.</p>
 
         <h2>10. Modifiche alla presente Informativa</h2>
         <p>Potremmo aggiornare questa Informativa per riflettere modifiche al servizio o alla normativa applicabile. In caso di modifiche sostanziali, ti avviseremo tramite notifica in-app o email almeno 30 giorni prima dell'entrata in vigore. L'uso continuato del servizio dopo la notifica costituisce accettazione delle modifiche.</p>
-        <p>La versione aggiornata sarà sempre disponibile nell'app alla sezione Impostazioni → Privacy Policy.</p>
+        <p>La versione aggiornata sarà sempre disponibile nell'app alla sezione <em>Impostazioni → Note legali → Informativa privacy</em>.</p>
 
         <h2>11. Contatti</h2>
         <p>Per qualsiasi domanda, dubbio o richiesta relativa alla presente Informativa o al trattamento dei tuoi dati personali:</p>
@@ -492,7 +513,7 @@
 
         <div class="footer">
             <p><strong>© 2025-2026 Mafe Balance — Alessio Rongione. Tutti i diritti riservati.</strong></p>
-            <p>Versione 2.2 — Ultima modifica: 6 settembre 2026</p>
+            <p>Versione 2.4 — Ultima modifica: 17 ottobre 2026</p>
         </div>
     </div>
 </body>
